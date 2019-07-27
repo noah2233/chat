@@ -10,11 +10,18 @@ import { AppHeaderComponent } from '@shared/app-header/app-header.component';
 import { CommonService } from '@services/common.service';
 import { AuthService } from '@services/auth.service';
 import { ChatService } from '@services/chat.service';
+// pages
+import { SignupComponent } from '@pages/signup/signup.component';
+import { LoginComponent } from '@pages/login/login.component';
+import { ChatroomComponent } from '@pages/chatroom/chatroom.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    SignupComponent,
+    LoginComponent,
+    ChatroomComponent
   ],
   imports: [
     BrowserModule,
