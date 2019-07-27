@@ -5,10 +5,13 @@ import { SignupComponent } from '@pages/signup/signup.component';
 import { LoginComponent } from '@pages/login/login.component';
 import { ChatroomComponent } from '@pages/chatroom/chatroom.component';
 
+import { pages } from '@core/consts';
+
 const routes: Routes = [
-  { path: 'signup', component: SignupComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'chat', component: ChatroomComponent },
+  { path: '', redirectTo: pages.login },
+  { path: pages.login, component: LoginComponent },
+  { path: pages.signup, component: SignupComponent },
+  { path: pages.chat, component: ChatroomComponent },
 ];
 
 @NgModule({
