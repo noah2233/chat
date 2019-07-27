@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
+import { environment } from '@environments/environment';
+
 // shared
 import { AppHeaderComponent } from '@shared/app-header/app-header.component';
 // services
@@ -22,9 +24,9 @@ import { ChatService } from '@services/chat.service';
 // pages
 import { SignupComponent } from '@pages/signup/signup.component';
 import { LoginComponent } from '@pages/login/login.component';
+// chatroom
 import { ChatroomComponent } from '@pages/chatroom/chatroom.component';
-
-import { environment } from '@environments/environment';
+import { ChatFormComponent } from './pages/chatroom/chat-form/chat-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { environment } from '@environments/environment';
     AppHeaderComponent,
     SignupComponent,
     LoginComponent,
-    ChatroomComponent
+    ChatroomComponent,
+    ChatFormComponent
   ],
   imports: [
     BrowserModule,
