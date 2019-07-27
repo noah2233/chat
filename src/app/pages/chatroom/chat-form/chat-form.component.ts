@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Message } from '@pages/chatroom/chatroom';
 
 import { ChatService } from '@pages/chatroom/chat.service';
 
@@ -10,7 +9,7 @@ import { ChatService } from '@pages/chatroom/chat.service';
   styleUrls: ['./chat-form.component.css']
 })
 export class ChatFormComponent implements OnInit {
-  message: Message;
+  message: string;
 
   constructor(private _chatService: ChatService) { }
 
