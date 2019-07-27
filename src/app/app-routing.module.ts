@@ -8,7 +8,7 @@ import { ChatroomComponent } from '@pages/chatroom/chatroom.component';
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'chatroom', component: ChatroomComponent },
+  { path: 'chat', component: ChatroomComponent },
 ];
 
 @NgModule({
