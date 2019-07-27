@@ -23,6 +23,8 @@ import { SignupComponent } from '@pages/signup/signup.component';
 import { LoginComponent } from '@pages/login/login.component';
 import { ChatroomComponent } from '@pages/chatroom/chatroom.component';
 
+import { environment } from '@environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,7 @@ import { ChatroomComponent } from '@pages/chatroom/chatroom.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
