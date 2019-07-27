@@ -20,11 +20,11 @@ import { AppHeaderComponent } from '@shared/app-header/app-header.component';
 // services
 import { CommonService } from '@services/common.service';
 import { AuthService } from '@services/auth.service';
-import { ChatService } from '@services/chat.service';
 // pages
 import { SignupComponent } from '@pages/signup/signup.component';
 import { LoginComponent } from '@pages/login/login.component';
 // chatroom
+import { ChatService } from '@pages/chatroom/chat.service';
 import { ChatroomComponent } from '@pages/chatroom/chatroom.component';
 import { ChatFormComponent } from './pages/chatroom/chat-form/chat-form.component';
 import { UserListComponent } from './pages/chatroom/user-list/user-list.component';
