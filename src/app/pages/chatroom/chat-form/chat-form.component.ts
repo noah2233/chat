@@ -1,29 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormGroup, FormControl } from '@angular/forms';
 
 import { ChatService } from '@pages/chatroom/chat.service';
 
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'chat-form',
   templateUrl: './chat-form.component.html',
   styleUrls: ['./chat-form.component.css']
 })
 export class ChatFormComponent implements OnInit {
-  message: string;
+  chatForm: FormGroup;
 
   constructor(private _chatService: ChatService) { }
 
   ngOnInit() {
+    this.initChatForm();
   }
 
-  send() {
-    this._chatService.sendMessage(this.message);
+  initChatForm() {
+    this.chatForm = new FormGroup({ message: new FormControl() });
   }
 
-  handelSubmit(event) {
-    if (event.keyCode === 13) {
-      this.send();
-    }
+  send(messageValue: string) {
+    this._chatService.sendMessage(messageValue);
   }
 
+  onSubmit(chatForm: FormGroup) {
+    const messageValue: string = chatForm.controls['message'] ? chatForm.controls['message'].value : '';
+    this.send(messageValue);
+  }
 }
