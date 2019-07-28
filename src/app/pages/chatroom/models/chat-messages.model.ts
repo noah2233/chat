@@ -5,5 +5,5 @@ export class ChatMessage {
     email?: string;
     userName?: Observable<string>;
     message?: string;
-    timeSent?: Date = new Date();
+    timeSent?: string;
 }

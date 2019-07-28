@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { formatDate } from '@angular/common';
 
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -22,7 +23,14 @@ export class ChatService {
   constructor(
     private _angularFireDatabase: AngularFireDatabase,
     private _angularFireAuth: AngularFireAuth,
-    private _authService: AuthService) { }
+    private _authService: AuthService) {
+    this._angularFireAuth.authState
+      .subscribe(auth => {
+        if (auth !== undefined && auth !== null) {
+          this.user = auth;
+        }
+      });
+  }
 
   sendMessage(message: string) {
     const timeStamp = this.getTimeStamp();
@@ -36,11 +44,15 @@ export class ChatService {
     });
   }
 
-  getTimeStamp(): Date {
-    return new Date();
+  getTimeStamp(): string {
+    const now = new Date();
+
+    return formatDate(now, 'd/M/yy h:mm:ss', 'en');
   }
 
-  getMessages() {
-    return null;
+  getMessages(): AngularFireList<ChatMessage> {
+    // query
+    return this._angularFireDatabase.list('messages',
+      ref => ref.limitToLast(25).orderByKey());
   }
 }
