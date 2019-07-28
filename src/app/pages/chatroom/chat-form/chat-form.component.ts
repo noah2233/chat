@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { ChatService } from '@pages/chatroom/chat.service';
-
-import { filter } from 'rxjs/operators';
 @Component({
   selector: 'chat-form',
   templateUrl: './chat-form.component.html',
@@ -19,7 +17,7 @@ export class ChatFormComponent implements OnInit {
   }
 
   initChatForm() {
-    this.chatForm = new FormGroup({ message: new FormControl() });
+    this.chatForm = new FormGroup({ message: new FormControl('', [Validators.required]) });
   }
 
   send(messageValue: string) {
@@ -27,7 +25,14 @@ export class ChatFormComponent implements OnInit {
   }
 
   onSubmit(chatForm: FormGroup) {
-    const messageValue: string = chatForm.controls['message'] ? chatForm.controls['message'].value : '';
-    this.send(messageValue);
+    let messageValue: string;
+
+    if (chatForm.valid) {
+      messageValue = chatForm.controls['message'].value;
+      this.send(messageValue);
+    } else {
+      // todo - handle popup
+      alert('INPUT IS EMPTY MF!');
+    }
   }
 }
