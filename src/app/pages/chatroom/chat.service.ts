@@ -14,8 +14,33 @@ import { ChatMessage } from '@pages/chatroom/models/chat-messages.model';
   providedIn: 'root'
 })
 export class ChatService {
+  user: any;
+  chatMessages: AngularFireList<ChatMessage>;
+  chatMessage: ChatMessage;
+  userName: Observable<string>;
 
-  constructor(private _authService: AuthService) { }
+  constructor(
+    private _angularFireDatabase: AngularFireDatabase,
+    private _angularFireAuth: AngularFireAuth,
+    private _authService: AuthService) { }
 
-  sendMessage(message: string) { }
+  sendMessage(message: string) {
+    const timeStamp = this.getTimeStamp();
+    const email = this.user.email;
+    this.chatMessages = this.getMessages();
+    this.chatMessages.push({
+      message: message,
+      timeSent: timeStamp,
+      userName: this.userName,
+      email: email
+    });
+  }
+
+  getTimeStamp(): Date {
+    return new Date();
+  }
+
+  getMessages() {
+    return null;
+  }
 }
