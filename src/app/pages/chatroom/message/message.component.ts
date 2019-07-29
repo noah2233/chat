@@ -8,22 +8,9 @@ import { ChatMessage } from '@pages/chatroom/models/chat-messages.model';
 })
 export class MessageComponent implements OnInit {
   @Input() chatMessage: ChatMessage;
-  userEmail: string;
-  userName: string;
-  messageContent: string;
-  timeStamp: string;
 
   constructor() { }
 
-  ngOnInit() {
-    this.initMessage();
-  }
-
-  initMessage() {
-    this.messageContent = this.chatMessage.message;
-    this.timeStamp = this.chatMessage.timeStamp;
-    this.userEmail = this.chatMessage.email;
-    this.userName = this.chatMessage.userName;
-  }
+  ngOnInit() { }
 
 }
