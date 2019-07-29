@@ -1,4 +1,18 @@
 :host {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+}
+
+.userListAndFeedWrapper {
+    display: flex;
+    flex: 1;
+}
+
+.userListAndFeedWrapper user-list {
+    flex: 1;
+}
+
+.userListAndFeedWrapper feed {
+    flex: 4;
 }
