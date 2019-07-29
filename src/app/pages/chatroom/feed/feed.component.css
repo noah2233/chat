@@ -1,3 +1,4 @@
 :host {
     flex: 4;
+    background: linear-gradient(181deg, rgba(100, 200, 255, 0.6), rgba(0, 0, 0, 0.9));
 }
