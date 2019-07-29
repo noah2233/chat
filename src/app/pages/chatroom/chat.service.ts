@@ -49,7 +49,7 @@ export class ChatService {
   getTimeStamp(): string {
     const now = new Date();
 
-    return formatDate(now, 'd/M/yy h:mm:ss', 'en');
+    return now.toString();
   }
 
   getMessages(): AngularFireList<ChatMessage> {
