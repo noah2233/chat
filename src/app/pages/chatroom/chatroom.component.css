@@ -8,11 +8,3 @@
     display: flex;
     flex: 1;
 }
-
-.userListAndFeedWrapper user-list {
-    flex: 1;
-}
-
-.userListAndFeedWrapper feed {
-    flex: 4;
-}

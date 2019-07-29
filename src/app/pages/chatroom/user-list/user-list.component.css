@@ -1,0 +1,9 @@
+:host {
+    background-color: #2A2845;
+    color: #fff;
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2em;
+    flex: 1;
+    border-right: 1px solid #222;
+}
