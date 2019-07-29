@@ -39,7 +39,7 @@ export class ChatService {
     this.chatMessages = this.getMessages();
     this.chatMessages.push({
       message: message,
-      timeSent: timeStamp,
+      timeStamp: timeStamp,
       // userName: this.userName,
       userName: 'userName',
       email: email
