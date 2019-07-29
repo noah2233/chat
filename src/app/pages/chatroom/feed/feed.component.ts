@@ -13,17 +13,17 @@ import { ChatMessage } from '@pages/chatroom/models/chat-messages.model';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit, OnChanges {
-  feed: AngularFireList<ChatMessage>;
+  feed$: any;
 
   constructor(
     private _chatService: ChatService) { }
 
   ngOnInit() {
-    this.feed = this._chatService.getMessages();
+    this.feed$ = this._chatService.getMessages().valueChanges();
   }
 
   ngOnChanges() {
-    this.feed = this._chatService.getMessages();
+    this.feed$ = this._chatService.getMessages().valueChanges();
   }
 
 }
