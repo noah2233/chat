@@ -22,6 +22,7 @@ export class ChatFormComponent implements OnInit {
 
   send(messageValue: string) {
     this._chatService.sendMessage(messageValue);
+    this.chatForm.reset();
   }
 
   onSubmit(chatForm: FormGroup) {
