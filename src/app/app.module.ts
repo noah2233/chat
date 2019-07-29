@@ -29,6 +29,7 @@ import { ChatroomComponent } from '@pages/chatroom/chatroom.component';
 import { ChatFormComponent } from './pages/chatroom/chat-form/chat-form.component';
 import { UserListComponent } from './pages/chatroom/user-list/user-list.component';
 import { FeedComponent } from './pages/chatroom/feed/feed.component';
+import { MessageComponent } from './pages/chatroom/message/message.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FeedComponent } from './pages/chatroom/feed/feed.component';
     ChatroomComponent,
     ChatFormComponent,
     UserListComponent,
-    FeedComponent
+    FeedComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
