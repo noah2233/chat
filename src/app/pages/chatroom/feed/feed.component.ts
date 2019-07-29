@@ -13,7 +13,7 @@ import { ChatMessage } from '@pages/chatroom/models/chat-messages.model';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit, OnChanges {
-  feed$: any;
+  feed$: Observable<ChatMessage[]>;
 
   constructor(
     private _chatService: ChatService) { }
