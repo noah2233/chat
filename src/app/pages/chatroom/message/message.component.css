@@ -1,0 +1,51 @@
+.messageContainer {
+    display: flex;
+    height: auto;
+    width: 70%;
+    min-width: 400px;
+    border-radius: 5px;
+    background-color: #eee;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.messageContainer .isOwnMessageContainer {
+    background-color: #01579B;
+}
+
+.messageContainer .messageData {
+    flex: 1;
+    padding: 10px;
+}
+
+.messageContainer .messageData .sender {
+    display: block;
+    color: #222;
+    font-weight: bold;
+}
+
+.messageContainer .isOwnSender {
+    color: #E1F5FE;
+}
+
+.messageContainer .messageData .timestamp {
+    color: #555;
+    font-style: italic;
+}
+
+.messageContainer .isOwnTimestamp {
+    color: #4FC3F7;
+}
+
+.messageContainer .messageContent {
+    height: auto;
+    flex: 9;
+    background-color: #fff;
+    padding: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.messageContainer .isOwnMessageContent {
+    background-color: #E3F2FD;
+    color: #01579B;
+}
