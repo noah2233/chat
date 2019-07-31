@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -9,6 +8,8 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 
 import { User } from '@pages/chatroom/models/user.model';
+
+import { from } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +18,6 @@ export class AuthService {
   private authState: any;
 
   constructor(
-    private _httpClient: HttpClient,
     private _angularFireDatabase: AngularFireDatabase,
     private _angularFireAuth: AngularFireAuth,
     private _router: Router) {
@@ -25,6 +25,16 @@ export class AuthService {
   }
 
   signUp(email: string, password: string, displayName: string) {
-    return this._httpClient.get(null);
+    const subscription = from(
+      this._angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
+        .then(user => {
+          this.authState = user;
+          const status = 'online';
+          this.setUserData(email, displayName, status);
+        }));
+
+    return subscription;
   }
+
+  setUserData(email: string, password: string, status: string) { }
 }
