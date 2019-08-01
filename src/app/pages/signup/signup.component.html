@@ -1,7 +1,21 @@
 <app-header></app-header>
-<form [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm)">
-    <input formControlName="email" />
-    <input formControlName="password" />
-    <input formControlName="dispalyName" />
-    <button class="btn chatButton" type="submit">Send</button>
-</form>
+<div class="container">
+    <div class="signUpCard">
+        <h2>Sign Up</h2>
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm)">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input class="formInput" id="email" formControlName="email" autocomplete="off" type="email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="formInput" formControlName="password" id="password" autocomplete="off" type="password" />
+            </div>
+            <div class="form-group">
+                <label for="dispalyName" for="dispalyName">Dispaly Name</label>
+                <input class="formInput" formControlName="dispalyName" id="dispalyName" autocomplete="off" />
+            </div>
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
