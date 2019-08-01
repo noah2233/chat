@@ -1,2 +1,7 @@
 <app-header></app-header>
-<p>signup-form works!</p>
+<form [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm)">
+    <input formControlName="email" />
+    <input formControlName="password" />
+    <input formControlName="dispalyName" />
+    <button class="btn chatButton" type="submit">Send</button>
+</form>

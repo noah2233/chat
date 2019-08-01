@@ -26,10 +26,8 @@ export class ChatFormComponent implements OnInit {
   }
 
   onSubmit(chatForm: FormGroup) {
-    let messageValue: string;
-
     if (chatForm.valid) {
-      messageValue = chatForm.controls['message'].value;
+      const messageValue: string = chatForm.controls['message'].value;
       this.send(messageValue);
     } else {
       // todo - handle popup
