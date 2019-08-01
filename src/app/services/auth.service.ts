@@ -24,6 +24,21 @@ export class AuthService {
     this.user = _angularFireAuth.authState;
   }
 
+  get currentUserID() {
+    return this.authState !== null ? this.authState.uid : '';
+  }
+
+  login(email: string, password: string) {
+    const subscription = from(
+      this._angularFireAuth.auth.signInWithEmailAndPassword(email, password)
+        .then((resolve) => {
+          const status = 'online';
+          this.setUserStatus(status);
+        }).catch(error => console.log(error)));
+
+    return subscription;
+  }
+
   signUp(email: string, password: string, displayName: string) {
     const subscription = from(
       this._angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
@@ -36,5 +51,25 @@ export class AuthService {
     return subscription;
   }
 
-  setUserData(email: string, password: string, status: string) { }
+  setUserData(email: string, displayName: string, status: string) {
+    const path = `users/${this.currentUserID}`;
+    const data = {
+      email: email,
+      displayName: displayName,
+      status: status
+    };
+
+    this._angularFireDatabase.object(path).update(data)
+      .catch(error => console.log(error));
+  }
+
+  setUserStatus(status: string) {
+    const path = `users/${this.currentUserID}`;
+    const data = {
+      status: status
+    };
+
+    this._angularFireDatabase.object(path).update(data)
+      .catch(error => console.log(error));
+  }
 }
