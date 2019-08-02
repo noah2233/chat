@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+/*fonts*/
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('/assets/fonts/open-sans-fontfacekit/web_fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot');
+    src: url('/assets/fonts/open-sans-fontfacekit/web_fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/open-sans-fontfacekit/web_fonts/opensans_regular_macroman/OpenSans-Regular-webfont.woff') format('woff'),
+         url('/assets/fonts/open-sans-fontfacekit/web_fonts/opensans_regular_macroman/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('/assets/fonts/open-sans-fontfacekit/web_fonts/opensans_regular_macroman/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 body {
     width: 100%;
@@ -6,5 +18,5 @@ body {
     background: #eee;
     background-attachment: fixed;
     background-size: cover;
-    font-family: "Open Sans", sans-serif;
+    font-family: "open_sansregular", sans-serif;
 }
