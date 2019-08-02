@@ -72,4 +72,8 @@ export class AuthService {
     this._angularFireDatabase.object(path).update(data)
       .catch(error => console.log(error));
   }
+
+  authUser() {
+    return this.user;
+   }
 }
