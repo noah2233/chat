@@ -1,2 +1,17 @@
 <app-header></app-header>
-<p>login-form works!</p>
+<div class="container">
+    <div class="loginCard">
+        <h2>Log in</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input class="formInput" id="email" formControlName="email" autocomplete="off" type="email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="formInput" formControlName="password" id="password" autocomplete="off" type="password" />
+            </div>
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+    </div>
+</div>

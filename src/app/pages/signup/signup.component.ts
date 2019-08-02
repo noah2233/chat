@@ -5,7 +5,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '@services/auth.service';
 
 import { pages } from '@core/consts';
-
 @Component({
   selector: 'signup',
   templateUrl: './signup.component.html',
@@ -13,7 +12,6 @@ import { pages } from '@core/consts';
 })
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
-
   email: string;
   password: string;
   dispalyName: string;
