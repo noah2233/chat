@@ -14,7 +14,7 @@
                 <a class="nav-link" *ngIf="!(user|async)?.uid" routerLink="/signup">Sign Up</a>
             </li>
             <li class="nav-item">
-                <span class="nav-link" id="userEmail" *ngIf="(user|async)?.uid">Hello, {{userEmail}}</span>
+                <span class="nav-link" *ngIf="(user|async)?.uid">Hello, {{userEmail}}</span>
             </li>
             <li class="nav-item">
                 <a class="nav-link" *ngIf="(user|async)?.uid" href="#" (click)="logout()">Logout</a>
