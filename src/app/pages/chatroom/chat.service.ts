@@ -32,7 +32,6 @@ export class ChatService {
 
         this.getUser().subscribe((result) => {
           this.userName = result['displayName'];
-          console.log(result);
         });
       });
   }
