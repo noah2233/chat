@@ -39,7 +39,14 @@ export class AuthService {
     return subscription;
   }
 
-  logout() { }
+  logout() {
+    const subscription = from(
+      this._angularFireAuth.auth.signOut()
+        .then((resolve) => { })
+        .catch(error => console.log(error)));
+
+    return subscription;
+  }
 
   signUp(email: string, password: string, displayName: string) {
     const subscription = from(

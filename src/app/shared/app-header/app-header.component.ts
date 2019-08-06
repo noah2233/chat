@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from '@services/auth.service';
 
 import { observable, Observable } from 'rxjs';
 
 import * as firebase from 'firebase/app';
+
+import { pages } from '@core/consts';
 @Component({
   selector: 'app-header',
   templateUrl: './app-header.component.html',
@@ -16,7 +19,8 @@ export class AppHeaderComponent implements OnInit {
   userEmail: string;
 
   constructor(
-    private _authService: AuthService) { }
+    private _authService: AuthService,
+    private _router: Router) { }
 
   ngOnInit() {
     this.user = this._authService.authUser();
@@ -27,5 +31,9 @@ export class AppHeaderComponent implements OnInit {
     });
   }
 
-  logout() { }
+  logout() {
+    this._authService.logout().subscribe(() => {
+      this._router.navigate([pages.login]);
+    });
+  }
 }
