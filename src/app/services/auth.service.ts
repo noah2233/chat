@@ -39,6 +39,8 @@ export class AuthService {
     return subscription;
   }
 
+  logout() { }
+
   signUp(email: string, password: string, displayName: string) {
     const subscription = from(
       this._angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
@@ -75,5 +77,5 @@ export class AuthService {
 
   authUser() {
     return this.user;
-   }
+  }
 }
