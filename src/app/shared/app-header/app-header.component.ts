@@ -26,4 +26,6 @@ export class AppHeaderComponent implements OnInit {
       }
     });
   }
+
+  logout() { }
 }
