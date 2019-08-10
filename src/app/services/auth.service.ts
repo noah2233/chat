@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   get currentUserID() {
-    return this.authState !== null ? this.authState.user.uid : '';
+    return this.authState ? this.authState.user.uid : '';
   }
 
   login(email: string, password: string) {
