@@ -18,4 +18,25 @@
     background: #ccc;
     line-height: 1;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.users .user:before {
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #222;
+    margin-right: 10px
+}
+
+.users .user.online:before {
+    background: green;
+}
+
+.users .user.offline:before {
+    background: red;
 }

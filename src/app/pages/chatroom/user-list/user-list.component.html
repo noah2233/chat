@@ -1,5 +1,5 @@
 <div class="container-fluid">
     <ul class="list-unstyled users" *ngFor="let user of users">
-        <li class="user">{{user.displayName}}</li>
+        <li class="user {{user.status}}">{{user.displayName}}</li>
     </ul>
 </div>
