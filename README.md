@@ -1,3 +1,7 @@
+# URL
+
+https://chat-11536.firebaseapp.com
+
 # Chat
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
