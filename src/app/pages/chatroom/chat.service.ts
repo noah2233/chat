@@ -5,8 +5,6 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
-import { Observable, of } from 'rxjs';
-
 import { AuthService } from '@services/auth.service';
 
 import { ChatMessage } from '@pages/chatroom/models/chat-messages.model';
@@ -19,6 +17,7 @@ export class ChatService {
   chatMessages: AngularFireList<ChatMessage>;
   chatMessage: ChatMessage;
   userName: string;
+  color: string;
 
   constructor(
     private _angularFireDatabase: AngularFireDatabase,
@@ -33,6 +32,7 @@ export class ChatService {
         if (this.user) {
           this.getUser().subscribe((result) => {
             this.userName = result['displayName'];
+            this.color = result['color'];
           });
         }
       });
@@ -59,7 +59,8 @@ export class ChatService {
       message: message,
       timeStamp: timeStamp,
       userName: this.userName,
-      email: email
+      email: email,
+      color: this.color
     });
   }
 

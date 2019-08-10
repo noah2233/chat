@@ -65,7 +65,8 @@ export class AuthService {
     const data = {
       email: email,
       displayName: displayName,
-      status: status
+      status: status,
+      color: this.getRandomColor()
     };
 
     this._angularFireDatabase.object(path).update(data)
@@ -84,5 +85,14 @@ export class AuthService {
 
   authUser() {
     return this.user;
+  }
+
+  getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   }
 }

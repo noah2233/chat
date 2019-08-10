@@ -13,4 +13,8 @@ export class MessageComponent implements OnInit {
 
   ngOnInit() { }
 
+  getBackgroundColor(chatMessage: ChatMessage): string {
+    return chatMessage ? '#' + chatMessage.color : '';
+  }
+
 }

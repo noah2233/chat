@@ -6,4 +6,5 @@ export class ChatMessage {
     userName?: string;
     message?: string;
     timeStamp?: string;
+    color?: string;
 }
