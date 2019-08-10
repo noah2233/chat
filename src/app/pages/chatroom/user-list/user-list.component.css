@@ -7,3 +7,15 @@
     flex: 1;
     border-right: 1px solid #222;
 }
+
+.users {
+    color: #222;
+}
+
+.users .user {
+    margin: 10px 0;
+    padding: 10px;
+    background: #ccc;
+    line-height: 1;
+    border-radius: 5px;
+}

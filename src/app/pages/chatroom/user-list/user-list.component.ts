@@ -7,6 +7,7 @@ import { ChatService } from '@pages/chatroom/chat.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+  public users: any[];
 
   constructor(
     private _chatService: ChatService) { }
@@ -16,7 +17,7 @@ export class UserListComponent implements OnInit {
   }
 
   initUsersList() {
-    this._chatService.getUsers().subscribe(results => console.log(results));
+    this._chatService.getUsers().subscribe(results => this.users = results);
   }
 
 }
