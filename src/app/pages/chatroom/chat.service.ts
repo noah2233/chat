@@ -72,7 +72,7 @@ export class ChatService {
 
   getMessages(): AngularFireList<ChatMessage> {
     // query
-    return this._angularFireDatabase.list('messages',
-      ref => ref.limitToLast(25).orderByKey());
+    return this._angularFireDatabase
+      .list('messages', ref => ref.limitToLast(25).orderByKey());
   }
 }
