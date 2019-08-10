@@ -30,14 +30,16 @@ export class ChatService {
           this.user = auth;
         }
 
-        this.getUser().subscribe((result) => {
-          this.userName = result['displayName'];
-        });
+        if (this.user) {
+          this.getUser().subscribe((result) => {
+            this.userName = result['displayName'];
+          });
+        }
       });
   }
 
   getUser() {
-    const userId = this.user.uid;
+    const userId = this.user ? this.user.uid : null;
     const path = `/users/${userId}`;
 
     return this._angularFireDatabase.object(path).valueChanges();
