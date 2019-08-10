@@ -17,7 +17,10 @@ export class UserListComponent implements OnInit {
   }
 
   initUsersList() {
-    this._chatService.getUsers().subscribe(results => this.users = results);
+    this._chatService.getUsers()
+      .subscribe((results) => {
+        this.users = results;
+      }, error => console.log(error));
   }
 
 }
