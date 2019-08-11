@@ -7,8 +7,6 @@ import * as firebase from 'firebase/app';
 
 import { Observable } from 'rxjs';
 
-import { User } from '@pages/chatroom/models/user.model';
-
 import { from } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -32,6 +30,7 @@ export class AuthService {
     const subscription = from(
       this._angularFireAuth.auth.signInWithEmailAndPassword(email, password)
         .then((resolve) => {
+          this.authState = resolve;
           const status = 'online';
           this.setUserStatus(status);
         }).catch(error => console.log(error)));
