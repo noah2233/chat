@@ -41,7 +41,7 @@ export class AuthService {
   logout() {
     const subscription = from(
       this._angularFireAuth.auth.signOut()
-        .then((resolve) => {
+        .then(() => {
           const status = 'offline';
           this.setUserStatus(status);
         })
