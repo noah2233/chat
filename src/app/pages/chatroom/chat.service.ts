@@ -33,7 +33,7 @@ export class ChatService {
           this.getUser().subscribe((result) => {
             this.userName = result['displayName'];
             this.color = result['color'];
-          });
+          }, error => console.log(error));
         }
       });
   }
