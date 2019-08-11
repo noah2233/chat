@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="feed">
-        <div *ngFor="let message of feed$ | async" class="message">
+        <div *ngFor="let message of feed" class="message">
             <message [chatMessage]="message"></message>
         </div>
     </div>

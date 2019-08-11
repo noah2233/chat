@@ -13,17 +13,21 @@ import { ChatMessage } from '@pages/chatroom/models/chat-messages.model';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit, OnChanges {
-  feed$: Observable<ChatMessage[]>;
+  feed: ChatMessage[];
 
   constructor(
     private _chatService: ChatService) { }
 
   ngOnInit() {
-    this.feed$ = this._chatService.getMessages().valueChanges();
+    this._chatService.getMessages().valueChanges().subscribe((result) => {
+      this.feed = result;
+    }, error => console.log(error));
   }
 
   ngOnChanges() {
-    this.feed$ = this._chatService.getMessages().valueChanges();
+    this._chatService.getMessages().valueChanges().subscribe((result) => {
+      this.feed = result;
+    }, error => console.log(error));
   }
 
 }
