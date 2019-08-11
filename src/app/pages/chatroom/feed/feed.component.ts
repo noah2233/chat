@@ -1,10 +1,6 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ChatService } from '@pages/chatroom/chat.service';
-
-import { AngularFireList } from 'angularfire2/database';
-
-import { Observable } from 'rxjs';
 
 import { ChatMessage } from '@pages/chatroom/models/chat-messages.model';
 @Component({
@@ -12,7 +8,7 @@ import { ChatMessage } from '@pages/chatroom/models/chat-messages.model';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.css']
 })
-export class FeedComponent implements OnInit, OnChanges {
+export class FeedComponent implements OnInit {
   feed: ChatMessage[];
 
   constructor(
@@ -23,11 +19,4 @@ export class FeedComponent implements OnInit, OnChanges {
       this.feed = result;
     }, error => console.log(error));
   }
-
-  ngOnChanges() {
-    this._chatService.getMessages().valueChanges().subscribe((result) => {
-      this.feed = result;
-    }, error => console.log(error));
-  }
-
 }
