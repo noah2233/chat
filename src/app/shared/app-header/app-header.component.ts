@@ -42,6 +42,6 @@ export class AppHeaderComponent implements OnInit {
   getUser() {
     this._chatService.getUser().subscribe((result) => {
       this.displayName = result['displayName'];
-    }, error => console.log(error));
+    }, () => { });
   }
 }

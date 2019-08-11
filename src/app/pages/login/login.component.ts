@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
       this._authService.login(email, password).subscribe(() => {
         this._router.navigate([pages.chat]);
-      }, error => this.errorMsg = error);
+      }, () => { });
     } else {
       alert('form is missing something...');
     }

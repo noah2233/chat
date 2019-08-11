@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
 
       this._authService.signUp(email, password, dispalyName).subscribe(() => {
         this._router.navigate([pages.chat]);
-      }, error => this.errorMsg = error);
+      }, () => { });
     } else {
       alert('form is missing something...');
     }

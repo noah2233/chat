@@ -20,7 +20,7 @@ export class UserListComponent implements OnInit {
     this._chatService.getUsers()
       .subscribe((results) => {
         this.users = results;
-      }, error => console.log(error));
+      }, () => { });
   }
 
 }
